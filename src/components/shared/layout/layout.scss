@@ -1,0 +1,23 @@
+.layout {
+	display: grid;
+	grid-template-areas:
+		'header header'
+		'aside  main';
+	grid-template-columns: var(--aside-width) 1fr; // Aside — auto, контент — всё оставшееся место
+	grid-template-rows: var(--header-height) 1fr; // Header — auto, остальное — по контенту
+	min-height: 100vh; // На всю высоту экрана
+
+	&__content {
+		grid-area: main;
+		padding: 20px;
+		overflow-y: auto; // Скролл внутри контента, если нужно
+	}
+}
+
+Header {
+	grid-area: header;
+}
+
+Aside {
+	grid-area: aside;
+}
