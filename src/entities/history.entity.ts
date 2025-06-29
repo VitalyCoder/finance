@@ -3,6 +3,6 @@ export type THistoryEntity = {
 	date: string;
 	description: string;
 	category: string;
-	spent: number;
-	remaining: number;
+	spent: string;
+	remaining: string;
 };

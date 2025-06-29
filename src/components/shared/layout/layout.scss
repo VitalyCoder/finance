@@ -5,19 +5,21 @@
 		'aside  main';
 	grid-template-columns: var(--aside-width) 1fr; // Aside — auto, контент — всё оставшееся место
 	grid-template-rows: var(--header-height) 1fr; // Header — auto, остальное — по контенту
-	min-height: 100vh; // На всю высоту экрана
+	height: 100vh; // На всю высоту экрана
 
 	&__content {
 		grid-area: main;
-		padding: 20px;
-		overflow-y: auto; // Скролл внутри контента, если нужно
+		// padding: 20px;
+		// overflow-y: auto; // Скролл внутри контента, если нужно
 	}
 }
 
 Header {
 	grid-area: header;
+	height: var(--header-height);
 }
 
 Aside {
 	grid-area: aside;
+	width: var(--aside-width);
 }

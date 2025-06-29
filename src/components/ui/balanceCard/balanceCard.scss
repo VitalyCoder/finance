@@ -1,0 +1,25 @@
+.balanceCard {
+	border: 1px solid var(--bg-border);
+	border-radius: var(--primary-radius);
+	padding: var(--primary-padding);
+	display: flex;
+	gap: var(--primary-gap);
+	width: 100%;
+	justify-content: space-evenly;
+
+	&__title {
+		height: 100%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	&__circle {
+		height: 120px;
+		width: 120px;
+		border-radius: 999px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+}

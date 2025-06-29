@@ -1,0 +1,21 @@
+.budget {
+	display: flex;
+	flex-direction: column;
+	padding: var(--primary-padding);
+	color: var(--primary-color);
+	border: 1px solid var(--bg-border);
+	width: 100%;
+	background-color: var(--white-color);
+
+	&__header {
+		padding-bottom: var(--primary-padding);
+		border-bottom: 1px solid var(--bg-border);
+	}
+
+	&__balance {
+		padding-top: var(--primary-padding);
+		display: flex;
+		gap: var(--primary-gap);
+		justify-content: space-between;
+	}
+}

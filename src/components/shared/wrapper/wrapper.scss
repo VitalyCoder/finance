@@ -1,0 +1,52 @@
+.wrapper {
+	display: flex;
+	flex-direction: column;
+	gap: var(--primary-gap);
+	background-color: var(--bg-primary);
+	padding: var(--primary-padding);
+	width: calc(100vw - var(--aside-width));
+	height: calc(100vh - var(--header-height));
+
+	&__top {
+		display: flex;
+		gap: var(--primary-gap);
+		height: 204px;
+
+		&__budget {
+			width: 66%;
+		}
+
+		&__activity {
+			width: 34%;
+			background-color: white;
+		}
+	}
+
+	&__bottom {
+		display: flex;
+		gap: var(--primary-gap);
+		height: calc(100% - 204px);
+
+		&__left {
+			width: 25%;
+			display: flex;
+			flex-direction: column;
+			gap: var(--primary-gap);
+
+			&__cards {
+				height: 33%;
+				background-color: white;
+			}
+
+			&__categories {
+				height: 67%;
+				background-color: white;
+			}
+		}
+
+		&__right {
+			background-color: #fff;
+			width: 75%;
+		}
+	}
+}
