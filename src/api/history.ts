@@ -1,8 +1,9 @@
 import type { TCategoryProps } from '../components/ui/category/category';
 import type { THistoryEntity } from '../entities/history.entity';
+import { getBalance } from './balance';
 import { getStore, setStore, type TSetStore } from './store';
 
-const categ: Array<string> = [
+const category: Array<string> = [
 	'Магазины',
 	'Продукты',
 	'Животные',
@@ -18,7 +19,7 @@ const arr: THistoryEntity[] = [
 		date: '01/04/25',
 		description:
 			'Lorem Ipsum is simply dummy text of the printing and typesetting',
-		category: categ[0],
+		category: category[0],
 		spent: 1,
 		remaining: 1,
 	},
@@ -27,7 +28,7 @@ const arr: THistoryEntity[] = [
 		date: '01/04/25',
 		description:
 			'Lorem Ipsum is simply dummy text of the printing and typesetting',
-		category: categ[0],
+		category: category[0],
 		spent: 1,
 		remaining: 1,
 	},
@@ -36,7 +37,7 @@ const arr: THistoryEntity[] = [
 		date: '01/04/25',
 		description:
 			'Lorem Ipsum is simply dummy text of the printing and typesetting',
-		category: categ[1],
+		category: category[1],
 		spent: 100,
 		remaining: 1,
 	},
@@ -45,7 +46,7 @@ const arr: THistoryEntity[] = [
 		date: '01/04/25',
 		description:
 			'Lorem Ipsum is simply dummy text of the printing and typesetting',
-		category: categ[3],
+		category: category[3],
 		spent: 1,
 		remaining: 1,
 	},
@@ -54,7 +55,7 @@ const arr: THistoryEntity[] = [
 		date: '01/04/25',
 		description:
 			'Lorem Ipsum is simply dummy text of the printing and typesetting',
-		category: categ[0],
+		category: category[0],
 		spent: 1,
 		remaining: 1,
 	},
@@ -63,7 +64,7 @@ const arr: THistoryEntity[] = [
 		date: '01/04/25',
 		description:
 			'Lorem Ipsum is simply dummy text of the printing and typesetting',
-		category: categ[3],
+		category: category[3],
 		spent: 1,
 		remaining: 1,
 	},
@@ -72,7 +73,7 @@ const arr: THistoryEntity[] = [
 		date: '01/04/25',
 		description:
 			'Lorem Ipsum is simply dummy text of the printing and typesetting',
-		category: categ[5],
+		category: category[5],
 		spent: 1,
 		remaining: 1,
 	},
@@ -81,7 +82,7 @@ const arr: THistoryEntity[] = [
 		date: '01/04/25',
 		description:
 			'Lorem Ipsum is simply dummy text of the printing and typesetting',
-		category: categ[0],
+		category: category[0],
 		spent: 1,
 		remaining: 1,
 	},
@@ -90,7 +91,7 @@ const arr: THistoryEntity[] = [
 		date: '01/04/25',
 		description:
 			'Lorem Ipsum is simply dummy text of the printing and typesetting',
-		category: categ[6],
+		category: category[6],
 		spent: 1,
 		remaining: 1,
 	},
@@ -99,7 +100,7 @@ const arr: THistoryEntity[] = [
 		date: '01/04/25',
 		description:
 			'Lorem Ipsum is simply dummy text of the printing and typesetting',
-		category: categ[0],
+		category: category[0],
 		spent: 1,
 		remaining: 1,
 	},
@@ -108,7 +109,7 @@ const arr: THistoryEntity[] = [
 		date: '01/04/25',
 		description:
 			'Lorem Ipsum is simply dummy text of the printing and typesetting',
-		category: categ[1],
+		category: category[1],
 		spent: 1,
 		remaining: 1,
 	},
@@ -117,7 +118,7 @@ const arr: THistoryEntity[] = [
 		date: '01/04/25',
 		description:
 			'Lorem Ipsum is simply dummy text of the printing and typesetting',
-		category: categ[0],
+		category: category[0],
 		spent: 1,
 		remaining: 1,
 	},
@@ -126,7 +127,7 @@ const arr: THistoryEntity[] = [
 		date: '01/04/25',
 		description:
 			'Lorem Ipsum is simply dummy text of the printing and typesetting',
-		category: categ[5],
+		category: category[5],
 		spent: 1,
 		remaining: 1,
 	},
@@ -135,7 +136,7 @@ const arr: THistoryEntity[] = [
 		date: '01/04/25',
 		description:
 			'Lorem Ipsum is simply dummy text of the printing and typesetting',
-		category: categ[6],
+		category: category[6],
 		spent: 1,
 		remaining: 1,
 	},
@@ -144,7 +145,7 @@ const arr: THistoryEntity[] = [
 		date: '01/04/25',
 		description:
 			'Lorem Ipsum is simply dummy text of the printing and typesetting',
-		category: categ[0],
+		category: category[0],
 		spent: 1,
 		remaining: 1,
 	},
@@ -153,7 +154,7 @@ const arr: THistoryEntity[] = [
 		date: '01/04/25',
 		description:
 			'Lorem Ipsum is simply dummy text of the printing and typesetting',
-		category: categ[2],
+		category: category[2],
 		spent: 1,
 		remaining: 1,
 	},
@@ -162,15 +163,28 @@ const arr: THistoryEntity[] = [
 		date: '01/04/25',
 		description:
 			'Lorem Ipsum is simply dummy text of the printing and typesetting',
-		category: categ[2],
+		category: category[2],
 		spent: 1,
 		remaining: 1,
 	},
 ];
 
+let currentBalance = getBalance()?.find(b => b.type === 'income')
+	?.mony as number;
+
+const arrWithRemaining = currentBalance
+	? arr.map(item => {
+			currentBalance -= item.spent;
+			return {
+				...item,
+				remaining: currentBalance,
+			};
+	  })
+	: [];
+
 const data: TSetStore = {
 	key: 'history',
-	value: JSON.stringify(arr),
+	value: JSON.stringify(arrWithRemaining),
 };
 
 export const setHistory = () => {
@@ -188,6 +202,8 @@ export const getCategoriesInfo = (): TCategoryProps[] => {
 	const categoryMap = new Map<string, { mony: number; count: number }>();
 
 	history.forEach(item => {
+		if (!item || !item.category) return;
+
 		if (!categoryMap.has(item.category)) {
 			categoryMap.set(item.category, { mony: 0, count: 0 });
 		}
@@ -197,14 +213,10 @@ export const getCategoriesInfo = (): TCategoryProps[] => {
 		data.count += 1;
 	});
 
-	const result: TCategoryProps[] = Array.from(categoryMap.entries()).map(
-		([categoryId, data]) => ({
-			id: categoryId,
-			name: categoryId,
-			mony: data.mony,
-			countOfTransactions: data.count,
-		})
-	);
-
-	return result;
+	return Array.from(categoryMap.entries()).map(([categoryId, data]) => ({
+		id: categoryId,
+		name: categoryId,
+		mony: data.mony,
+		countOfTransactions: data.count,
+	}));
 };

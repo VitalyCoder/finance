@@ -1,10 +1,19 @@
 import type { THistoryEntity } from '../../../entities/history.entity';
 import './historyElement.scss';
 
+export type THistoryElementProps = {
+	date: string;
+	description: string;
+	category: string;
+	spent: string | number;
+	remaining: string | number;
+};
+
 const HistoryElement: React.FC<
 	THistoryEntity | THistoryElementProps
 > = props => {
-	const isHistoryEntity = typeof props.spent === 'number';
+	const isHistoryEntity =
+		typeof props.spent === 'number' && typeof props.remaining === 'number';
 
 	return (
 		<div className='historyElement'>
@@ -18,21 +27,17 @@ const HistoryElement: React.FC<
 				{props.category}
 			</div>
 			<div className='historyElement__spent historyElement__item'>
-				{isHistoryEntity ? `$${props.spent.toFixed(2)}` : props.spent}
+				{isHistoryEntity
+					? `$${(props.spent as number).toFixed(2)}`
+					: props.spent ?? '-'}
 			</div>
 			<div className='historyElement__remaining historyElement__item'>
-				{isHistoryEntity ? `$${props.remaining.toFixed(2)}` : props.remaining}
+				{isHistoryEntity
+					? `$${(props.remaining as number).toFixed(2)}`
+					: props.remaining ?? '-'}
 			</div>
 		</div>
 	);
 };
 
 export default HistoryElement;
-
-export type THistoryElementProps = {
-	date: 'Дата';
-	description: 'Описание';
-	category: 'Категория';
-	spent: 'Траты';
-	remaining: 'Остаток';
-};

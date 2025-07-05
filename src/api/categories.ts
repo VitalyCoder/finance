@@ -64,13 +64,3 @@ export const setCategories = () => {
 export const getCategories = () => {
 	return getStore<TCategoryProps[]>('categories');
 };
-
-// export const getCategoriesInfo = () => {
-// 	const categories = getCategories();
-// 	const info = categories?.filter(
-// 		(item, index, self) =>
-// 			index === self.findIndex(other => other.id === item.id)
-// 	);
-
-// 	return info;
-// };
