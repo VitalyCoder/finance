@@ -1,0 +1,14 @@
+.category {
+	display: flex;
+	flex-direction: column;
+	gap: 5px;
+	padding: var(--primary-padding);
+	width: 100%;
+	border-bottom: 1px solid var(--bg-border);
+
+	&__info {
+		display: flex;
+		width: 100%;
+		justify-content: space-between;
+	}
+}
