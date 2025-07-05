@@ -1,4 +1,3 @@
-import type React from 'react';
 import type { THistoryEntity } from '../../../entities/history.entity';
 import './historyElement.scss';
 
