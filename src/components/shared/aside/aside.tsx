@@ -13,13 +13,13 @@ const Aside = () => {
 	return (
 		<aside className='aside'>
 			<Link to={'/'} className={path === '/' ? 'active' : ''}>
-				Dashboard
+				Панель
 			</Link>
 			<Link to={'/history'} className={path === '/history' ? 'active' : ''}>
-				History
+				История
 			</Link>
 			<Link to={'/cards'} className={path === '/cards' ? 'active' : ''}>
-				Cards
+				Карты
 			</Link>
 		</aside>
 	);

@@ -18,10 +18,10 @@ const HistoryElement: React.FC<
 				{props.category}
 			</div>
 			<div className='historyElement__spent historyElement__item'>
-				{isHistoryEntity ? `$${props.spent}` : props.spent}
+				{isHistoryEntity ? `$${props.spent.toFixed(2)}` : props.spent}
 			</div>
 			<div className='historyElement__remaining historyElement__item'>
-				{isHistoryEntity ? `$${props.remaining}` : props.remaining}
+				{isHistoryEntity ? `$${props.remaining.toFixed(2)}` : props.remaining}
 			</div>
 		</div>
 	);
@@ -30,9 +30,9 @@ const HistoryElement: React.FC<
 export default HistoryElement;
 
 export type THistoryElementProps = {
-	date: 'Date';
-	description: 'Description';
-	category: 'Category';
-	spent: 'Spent';
-	remaining: 'Remaining';
+	date: 'Дата';
+	description: 'Описание';
+	category: 'Категория';
+	spent: 'Траты';
+	remaining: 'Остаток';
 };

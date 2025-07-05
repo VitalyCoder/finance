@@ -46,7 +46,7 @@ const Budget = () => {
 	return (
 		<div className='budget'>
 			<div className='budget__header'>
-				<h3>All Budget</h3>
+				<h3>Весь бюджет</h3>
 			</div>
 			<div className='budget__balance'>
 				{budget.map((p: TBalanceCard) => (

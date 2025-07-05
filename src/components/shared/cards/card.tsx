@@ -14,21 +14,35 @@ const Cards: React.FC<TCardProps> = ({ cards }) => {
 	}
 
 	const prevCard = () =>
-		setCurrentIndex(prev => (prev === cards.length - 1 ? 0 : prev - 1));
+		setCurrentIndex(prev => (prev === 0 ? cards.length - 1 : prev - 1));
 
 	const nextCard = () =>
 		setCurrentIndex(prev => (prev === cards.length - 1 ? 0 : prev + 1));
 
 	return (
 		<div className='cards'>
-			<div className='cards__header'>Мои карты</div>
+			<div className='cards__header'>
+				<h3>Мои карты</h3>
+			</div>
 			<div className='cards__slider'>
-				<button onClick={prevCard} disabled={currentIndex === 0 ? true : false}>
-					⬅️
-				</button>
-				<div className='cards__slider__element'>
-					{/* <div>{cards[currentIndex].id}</div>
-					<div>{cards[currentIndex].number}</div> */}
+				<button onClick={prevCard}>⬅️</button>
+				<div className='cards__slider__window'>
+					<div
+						className='cards__slider__track'
+						style={{
+							transform: `translateX(-${currentIndex * 100}%)`,
+						}}
+					>
+						{cards.map(card => (
+							<div
+								key={card.id}
+								className='cards__slider__element'
+								style={{
+									backgroundImage: `url(${card.imageUrl})`,
+								}}
+							></div>
+						))}
+					</div>
 				</div>
 				<button onClick={nextCard}>➡️</button>
 			</div>

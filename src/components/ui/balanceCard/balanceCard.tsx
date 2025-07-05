@@ -1,7 +1,16 @@
 import type React from 'react';
+import { useState } from 'react';
 import './balanceCard.scss';
 
+export type TTitle = 'Баланс' | 'Траты' | 'Пополнения';
+
 const BalanceCard: React.FC<TBalanceCard> = props => {
+	const [title] = useState<TTitle>(() => {
+		if (props.title === 'income') return 'Пополнения';
+		if (props.title === 'spent') return 'Траты';
+		return 'Баланс';
+	});
+
 	const pickColor = (data: TBalanceCard['type']): string => {
 		if (data === 'income') return 'blue';
 		if (data === 'spent') return 'red';
@@ -11,7 +20,7 @@ const BalanceCard: React.FC<TBalanceCard> = props => {
 	return (
 		<div className='balanceCard'>
 			<div className='balanceCard__title'>
-				<span>{props.title}</span>
+				<span>{title}</span>
 			</div>
 			<div
 				className='balanceCard__circle'

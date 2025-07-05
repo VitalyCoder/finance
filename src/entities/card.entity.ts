@@ -1,5 +1,6 @@
 export type TCardEntity = {
 	id: string;
-	number: number;
+	number: string;
 	fullName: string;
+	imageUrl: string;
 };

@@ -6,16 +6,20 @@ import CategoriesComponent from '../category/category';
 import History from '../history/history';
 import './wrapper.scss';
 
+const imageUrl = '/payCard.png';
+
 const cards: TCardEntity[] = [
 	{
 		id: 'q',
-		fullName: 'test',
-		number: 4536754637,
+		fullName: 'Test User',
+		number: '4536 7546 4637 1234',
+		imageUrl,
 	},
 	{
 		id: 'w',
-		fullName: 'test',
-		number: 4536754637,
+		fullName: 'Test User 2',
+		number: '4536 7546 4637 5678',
+		imageUrl,
 	},
 ];
 

@@ -2,140 +2,167 @@ import type { TCategoryProps } from '../components/ui/category/category';
 import type { THistoryEntity } from '../entities/history.entity';
 import { getStore, setStore, type TSetStore } from './store';
 
+const categ: Array<string> = [
+	'Магазины',
+	'Продукты',
+	'Животные',
+	'Такси',
+	'Переводы',
+	'Аптеки',
+	'Маркетплейсы',
+];
+
 const arr: THistoryEntity[] = [
 	{
 		id: '1',
 		date: '01/04/25',
-		description: '1',
-		category: '1cats',
+		description:
+			'Lorem Ipsum is simply dummy text of the printing and typesetting',
+		category: categ[0],
 		spent: 1,
 		remaining: 1,
 	},
 	{
 		id: '2',
 		date: '01/04/25',
-		description: '1',
-		category: '1',
+		description:
+			'Lorem Ipsum is simply dummy text of the printing and typesetting',
+		category: categ[0],
 		spent: 1,
 		remaining: 1,
 	},
 	{
 		id: '3',
 		date: '01/04/25',
-		description: '1',
-		category: '1',
-		spent: 1,
+		description:
+			'Lorem Ipsum is simply dummy text of the printing and typesetting',
+		category: categ[1],
+		spent: 100,
 		remaining: 1,
 	},
 	{
 		id: '4',
 		date: '01/04/25',
-		description: '1',
-		category: '1',
+		description:
+			'Lorem Ipsum is simply dummy text of the printing and typesetting',
+		category: categ[3],
 		spent: 1,
 		remaining: 1,
 	},
 	{
 		id: '5',
 		date: '01/04/25',
-		description: '1',
-		category: '1',
+		description:
+			'Lorem Ipsum is simply dummy text of the printing and typesetting',
+		category: categ[0],
 		spent: 1,
 		remaining: 1,
 	},
 	{
 		id: '6',
 		date: '01/04/25',
-		description: '1',
-		category: '1',
+		description:
+			'Lorem Ipsum is simply dummy text of the printing and typesetting',
+		category: categ[3],
 		spent: 1,
 		remaining: 1,
 	},
 	{
 		id: '7',
 		date: '01/04/25',
-		description: '1',
-		category: '1',
+		description:
+			'Lorem Ipsum is simply dummy text of the printing and typesetting',
+		category: categ[5],
 		spent: 1,
 		remaining: 1,
 	},
 	{
 		id: '8',
 		date: '01/04/25',
-		description: '1',
-		category: '1',
+		description:
+			'Lorem Ipsum is simply dummy text of the printing and typesetting',
+		category: categ[0],
 		spent: 1,
 		remaining: 1,
 	},
 	{
 		id: '9',
 		date: '01/04/25',
-		description: '1',
-		category: '1',
+		description:
+			'Lorem Ipsum is simply dummy text of the printing and typesetting',
+		category: categ[6],
 		spent: 1,
 		remaining: 1,
 	},
 	{
 		id: '10',
 		date: '01/04/25',
-		description: '1',
-		category: '1',
+		description:
+			'Lorem Ipsum is simply dummy text of the printing and typesetting',
+		category: categ[0],
 		spent: 1,
 		remaining: 1,
 	},
 	{
 		id: '11',
 		date: '01/04/25',
-		description: '1',
-		category: '1',
+		description:
+			'Lorem Ipsum is simply dummy text of the printing and typesetting',
+		category: categ[1],
 		spent: 1,
 		remaining: 1,
 	},
 	{
 		id: '12',
 		date: '01/04/25',
-		description: '1',
-		category: '1',
+		description:
+			'Lorem Ipsum is simply dummy text of the printing and typesetting',
+		category: categ[0],
 		spent: 1,
 		remaining: 1,
 	},
 	{
 		id: '13',
 		date: '01/04/25',
-		description: '1',
-		category: '1',
+		description:
+			'Lorem Ipsum is simply dummy text of the printing and typesetting',
+		category: categ[5],
 		spent: 1,
 		remaining: 1,
 	},
 	{
 		id: '14',
 		date: '01/04/25',
-		description: '1',
-		category: '1',
+		description:
+			'Lorem Ipsum is simply dummy text of the printing and typesetting',
+		category: categ[6],
 		spent: 1,
 		remaining: 1,
 	},
 	{
 		id: '15',
 		date: '01/04/25',
-		description: '1',
-		category: '1',
+		description:
+			'Lorem Ipsum is simply dummy text of the printing and typesetting',
+		category: categ[0],
 		spent: 1,
 		remaining: 1,
 	},
 	{
 		id: '16',
 		date: '01/04/25',
-		description: '1',
-		category: '1',
+		description:
+			'Lorem Ipsum is simply dummy text of the printing and typesetting',
+		category: categ[2],
 		spent: 1,
 		remaining: 1,
 	},
 	{
 		id: '17',
 		date: '01/04/25',
-		description: '1',
-		category: '1',
+		description:
+			'Lorem Ipsum is simply dummy text of the printing and typesetting',
+		category: categ[2],
 		spent: 1,
 		remaining: 1,
 	},

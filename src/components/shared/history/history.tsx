@@ -5,11 +5,11 @@ import HistoryElement, {
 import './history.scss';
 
 const data: THistoryElementProps = {
-	date: 'Date',
-	description: 'Description',
-	category: 'Category',
-	spent: 'Spent',
-	remaining: 'Remaining',
+	date: 'Дата',
+	description: 'Описание',
+	category: 'Категория',
+	spent: 'Траты',
+	remaining: 'Остаток',
 };
 
 const History = () => {
@@ -17,7 +17,7 @@ const History = () => {
 	return (
 		<div className='history'>
 			<div className='history__header'>
-				<h3>History</h3>
+				<h3>История</h3>
 			</div>
 			<div className='history__table'>
 				<HistoryElement {...data} />
