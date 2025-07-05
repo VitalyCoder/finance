@@ -15,7 +15,7 @@ FROM nginx:alpine
 COPY --from=builder /dist /usr/share/nginx/html
 
 # Копируем конфиг nginx
-COPY /default.conf /etc/nginx/conf.d/default.conf
+COPY default.conf /etc/nginx/conf.d/default.conf
 
 EXPOSE 80
 
