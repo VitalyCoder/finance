@@ -1,9 +1,8 @@
 import { useState } from 'react';
-import type { TCardEntity } from '../../../entities/card.entity';
 import './card.scss';
 
-type TCardProps = {
-	cards?: TCardEntity[];
+export type TCardProps = {
+	cards?: string[];
 };
 
 const Cards: React.FC<TCardProps> = ({ cards }) => {
@@ -25,26 +24,32 @@ const Cards: React.FC<TCardProps> = ({ cards }) => {
 				<h3>Мои карты</h3>
 			</div>
 			<div className='cards__slider'>
-				<button onClick={prevCard}>⬅️</button>
+				<button className='cards__slider__btn' onClick={prevCard}>
+					⬅️
+				</button>
 				<div className='cards__slider__window'>
 					<div
 						className='cards__slider__track'
 						style={{
 							transform: `translateX(-${currentIndex * 100}%)`,
+							// width: `${cards.length * 100}%`,
 						}}
 					>
-						{cards.map(card => (
+						{cards.map((imageUrl, index) => (
 							<div
-								key={card.id}
+								key={`${imageUrl}-${index}`}
 								className='cards__slider__element'
 								style={{
-									backgroundImage: `url(${card.imageUrl})`,
+									backgroundImage: `url(${imageUrl})`,
+									// backgroundColor: index % 2 === 0 ? 'red' : 'blue',
 								}}
 							></div>
 						))}
 					</div>
 				</div>
-				<button onClick={nextCard}>➡️</button>
+				<button className='cards__slider__btn' onClick={nextCard}>
+					➡️
+				</button>
 			</div>
 		</div>
 	);
